@@ -1,10 +1,5 @@
 accessWidener v2 named
 
-accessible method net/minecraft/world/gen/chunk/ChunkNoiseSampler getHorizontalCellBlockCount ()I
-accessible method net/minecraft/world/gen/chunk/ChunkNoiseSampler getVerticalCellBlockCount ()I
-accessible method net/minecraft/world/gen/chunk/ChunkNoiseSampler sampleBlockState ()Lnet/minecraft/block/BlockState;
-accessible method net/minecraft/world/gen/chunk/ChunkNoiseSampler createMultiNoiseSampler (Lnet/minecraft/world/gen/noise/NoiseRouter;Ljava/util/List;)Lnet/minecraft/world/biome/source/util/MultiNoiseUtil$MultiNoiseSampler;
-accessible class net/minecraft/world/gen/densityfunction/DensityFunctionTypes$Beardifier
-accessible class net/minecraft/world/gen/WorldPresets$Registrar
-accessible method net/minecraft/world/gen/chunk/placement/StructurePlacement getFrequencyReductionMethod ()Lnet/minecraft/world/gen/chunk/placement/StructurePlacement$FrequencyReductionMethod;
-accessible method net/minecraft/world/gen/chunk/placement/StructurePlacement getSalt ()I
+extendable class net/minecraft/world/gen/chunk/NoiseChunkGenerator
+accessible class net/minecraft/world/border/WorldBorder$Area
+accessible class net/minecraft/world/border/WorldBorder$StaticArea
