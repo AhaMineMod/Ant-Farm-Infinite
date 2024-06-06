@@ -1,10 +1,14 @@
 plugins {
-    id 'fabric-loom' version '1.5-SNAPSHOT'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'maven-publish'
 }
 
 group = 'net.quidvio'
-version = 'b1.0'
+version = project.mod_version
+
+base {
+    archivesName = "${project.archives_base_name}-${project.minecraft_version}-${project.mod_version}"
+}
 
 repositories {
     // Add repositories to retrieve artifacts from in here.
@@ -29,11 +33,11 @@ dependencies {
 }
 
 processResources {
-    inputs.property "version", project.version
+    inputs.property "version", project.mod_version
     filteringCharset "UTF-8"
 
     filesMatching("fabric.mod.json") {
-        expand "version": project.version
+        expand "version": project.mod_version
     }
 }
 
@@ -63,23 +67,26 @@ java {
 
 jar {
     from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}" }
+        rename { "${it}_${project.archives_base_name}" }
     }
 }
 
 // configure the maven publication
+// configure the maven publication
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            from components.java
+        create("mavenJava", MavenPublication) {
+            artifactId("${project.mod_id}-${project.minecraft_version.replace(".", "_")}")
+            version("${rootProject.mod_version}")
+            from(components.java)
         }
     }
 
-    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
+//        mavenLocal()
+//
+//        maven {
+//            url("$rootDir/publish")
+//        }
     }
 }
