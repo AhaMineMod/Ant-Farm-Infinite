@@ -19,6 +19,8 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: ${{ matrix.java }}
+      - name: cd two_d_craft
+        run: cd two_d_craft
       - name: Setup cache
         uses: actions/cache@v3.0.11
         with:
@@ -29,11 +31,11 @@ jobs:
 
       - name: make gradle wrapper executable
         if: ${{ runner.os != 'Windows' }}
-        run: chmod +x ./two_d_craft/gradlew
+        run: chmod +x ./gradlew
       - name: build
-        run: ./two_d_craft/gradlew build
+        run: ./gradlew build
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: two_d_craft/build/libs/
+          path: build/libs/
