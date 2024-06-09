@@ -4,6 +4,10 @@
   "package": "com.quidvio.ant_farm_inf.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "EndGatewayBlockEntityMixin",
+    "EndGatewayFeatureMixin",
+    "EndPortalFeatureMixin",
+    "EntityMixin",
     "WorldBorderStaticAreaMixin"
   ],
   "client": [
